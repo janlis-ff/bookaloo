@@ -14,6 +14,10 @@ urlpatterns = [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
+    path(
+        "books/",
+        include("bookaloo.books.urls"),
+    ),
     path(settings.ADMIN_URL, admin.site.urls),
     # path("accounts/", include("allauth.urls")),
     # path("api/auth-token/", obtain_auth_token, name="obtain_auth_token"),

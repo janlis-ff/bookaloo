@@ -1,4 +1,5 @@
 import pytest
+from rest_framework.test import APIClient
 
 from bookaloo.users.models import User
 from bookaloo.users.tests.factories import UserFactory
@@ -12,3 +13,8 @@ def _media_storage(settings, tmpdir) -> None:
 @pytest.fixture
 def user(db) -> User:
     return UserFactory()
+
+
+@pytest.fixture
+def anonymous_client() -> APIClient:
+    return APIClient()
