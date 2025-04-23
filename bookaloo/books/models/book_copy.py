@@ -1,6 +1,7 @@
-from books.enums import BookCondition
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
+from bookaloo.books.enums import BookCondition
 
 
 class BookCopy(models.Model):
@@ -26,6 +27,14 @@ class BookCopy(models.Model):
         default=BookCondition.VERY_GOOD,
     )
 
+    """
+    NOTE: `is_available` is a boolean field for indicating
+          whether the book is currently borrowed or not.
+          It exists for performance reasons, as it is actually
+          derived from the fact whether there are any active
+          `BookLoan` objects for this book copy or not.
+          It should NOT be used as a source of truth.
+    """
     is_available = models.BooleanField(
         default=True,
         db_index=True,
