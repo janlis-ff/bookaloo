@@ -1,0 +1,7 @@
+from .author_serializer import AuthorSerializer
+from .book_copy_serializer import BookCopySerializer
+from .book_edition_serializer import BookEditionSerializer
+from .book_loan_serializer import BookLoanSerializer
+from .book_return_serializer import BookReturnSerializer
+from .book_serializer import BookSerializer
+from .publisher_serializer import PublisherSerializer
